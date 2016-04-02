@@ -1,0 +1,68 @@
+@sectionPadding: 4em;
+
+section.ui.segment {
+  padding-top: @sectionPadding;
+  padding-bottom: @sectionPadding;
+}
+
+.motto-text {
+  font-size: 2rem;
+  font-weight: 200;
+  -webkit-font-smoothing: antialiased;
+}
+
+.featured-owner {
+  text-align: center;
+}
+
+.ui.header.featured-home-header > .featured-home-header-icon {
+  font-size: 1em;
+  margin-right: 0;
+  vertical-align: initial;
+}
+
+.featured-owner-caption {
+  padding-top: 1em;
+}
+
+.featured-home-address {
+  font-size: 1.5rem;
+}
+
+.featured-home-meta {
+  display: inline-block;
+  padding-right: 1em;
+  font-size: 1.25em;
+
+  & + & {
+    padding-left: 1em;
+    border-left: 1px solid #999;
+  }
+}
+
+.featured-testimonials,
+.featured-home-images {
+  position: relative;
+  height: 110px;
+  cursor: pointer;
+}
+
+// slider effect
+.featured-testimonial,
+.featured-home-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+
+  // slider into view
+  &.animate {
+    opacity: 1;
+  }
+}
+
+.ServiceList {
+  margin-top: 2em;
+}

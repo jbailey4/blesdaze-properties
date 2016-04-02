@@ -1,0 +1,110 @@
+@headerHeight: 60px;
+@headerMobileHeight: 44px;
+@headerHeightExpanded: 300px;
+
+.siteHeader {
+  background: #fff;
+}
+
+/**
+ *  Styles for global site header and navigation menu
+ */
+.siteHeader__content.ui.container {
+  display: flex;
+  align-items: center;
+}
+
+.siteHeader--translucent {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.siteHeader__logo--mobile.ui.image {
+  display: none;
+}
+
+.siteHeader__nav.ui.menu {
+  margin-left: auto; // push to the right
+  margin-top: 0;
+  align-self: stretch;
+
+  & > a.item {
+    align-self: initial;
+    border-radius: none;
+
+    &:hover {
+      background: transparent;
+      color: #777;
+    }
+  }
+}
+
+// mobile nav toggle
+.nav-toggle {
+  display: none;
+  font-size: 1.5em;
+  font-size: 1.5em;
+  line-height: 44px;
+  padding: 0 0.5em;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  // state of header while menu is collapsed
+  .siteHeader {
+    height: @headerMobileHeight;
+  }
+
+  .siteHeader__content {
+    flex-wrap: wrap;
+    height: 100%;
+  }
+
+  .siteHeader__nav {
+    margin-left: 0;
+    width: 100%;
+
+    opacity: 0;
+    transform: translate3d(0, -@headerHeightExpanded - @headerHeight, 0);
+
+    .item {
+      font-size: 1.2rem;
+    }
+  }
+
+  .nav-toggle {
+    display: inline-block;
+    margin-left: auto;
+  }
+
+  .siteHeader__logo--mobile {
+    display: inline-block;
+  }
+  .siteHeader__logo {
+    display: none;
+  }
+
+  // state of header while menu is expanded - show-menu is attached to the body element when nav is expanded
+  .show-menu {
+
+    .siteHeader {
+      height: @headerHeightExpanded;
+    }
+
+    .siteHeader__nav {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition: transform .1s ease-in, opacity .2s .1s ease-out;
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+  .siteHeader__nav {
+    & > .item {
+      margin: 0;
+    }
+  }
+}

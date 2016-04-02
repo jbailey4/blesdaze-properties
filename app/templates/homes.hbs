@@ -1,0 +1,60 @@
+<section class="ui grid container house-listings">
+  <div class="row">
+    <div class="eight wide column house-listings-filter">
+      <span><strong>Listing Type: </strong> </span>
+      {{#ui-dropdown class="inline" onChange=(action 'listTypeSelectionChange')}}
+        <div class="text"> {{listingTypeSelection}}</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+        {{#each listingTypes as |listingType|}}
+          <div class="item">
+            {{listingType}}
+          </div>
+        {{/each}}
+        </div>
+      {{/ui-dropdown}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="ui two cards houses">
+
+      <div class="card house-item">
+        <div class="content">
+          <div class="right floated price">Rent | $750</div>
+          <div class="header">
+            1933 Ebenezer Road
+            <div class="sub header">Rock Hill, SC 29730</div>
+          </div>
+        </div>
+        <div class="image">
+          <img src="/images/sample-feature-house.jpg" alt="feature image of home on 1933 Ebenezer Road Rock Hill, SC">
+        </div>
+        <div class="content">
+          <div class="meta">2 beds | 1 bath</div>
+          <div class="description">
+            <p>House Features: Living Room, Kitchen with Eat-in Dining Area, Close to Shopping, Community Parks, All Appliances, Washer / Dryer Connection, Shower in bath, water service (City of Rock Hill), electric (Duke Energy), Central Air  and Heat</p>
+            <p>Flooring: Tile and/ or Carpet</p>
+            <p>Pet Policy:  Pets are negotiable with non-refundable deposit</p>
+            <p>Schools: Minutes from Downtown Rock Hill, Close to Winthrop University, Rock Hill Elementary School,
+            Northwestern High School</p>
+            <p>Lease Terms:  One year</p>
+            <p>House features two parking spaces in front of unit, very safe and quite neighborhood</p>
+          </div>
+        </div>
+        <div class="extra content">
+          <div class="left floated like">
+            <i class="mail icon"></i>
+            Contact
+          </div>
+          <div class="right floated star">
+            <i class="star icon"></i>
+            Favorite
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>

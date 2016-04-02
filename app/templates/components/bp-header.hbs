@@ -1,0 +1,21 @@
+<header class="siteHeader" role=banner>
+  <div class="siteHeader__content ui container">
+    {{#link-to "index" class="siteHeader__logo ui small image"}}
+      <img src="images/logo.png" alt="">
+    {{/link-to}}
+    {{#link-to "index" class="siteHeader__logo--mobile ui tiny image"}}
+      <img src="images/logo-mobile.png" alt="">
+    {{/link-to}}
+    <a class="nav-toggle">
+      <i class="ellipsis vertical icon"></i>
+    </a>
+    <div id="main-menu" class="siteHeader__nav ui secondary stackable menu" role="navigation">
+      {{#link-to "index" class="item"}}Home{{/link-to}}
+      {{#link-to "about-us" class="item"}}About Us{{/link-to}}
+      {{#link-to "services" class="item"}}Services{{/link-to}}
+      {{!-- <a href="/testimonials" class="item">Testimonials</a> --}}
+      {{#link-to "homes" class="item"}}House Listings{{/link-to}}
+      {{#link-to "contact-us" class="item"}}Contact us{{/link-to}}
+    </div>
+  </div>
+</header>
