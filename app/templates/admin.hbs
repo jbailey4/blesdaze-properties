@@ -1,0 +1,16 @@
+<div class="ui container admin">
+  <div class="ui grid">
+    <div class="three wide column">
+      <div class="ui vertical fluid menu">
+        <div class="ui item header">Admin</div>
+        {{#each filteredModels as |name|}}
+          {{link-to name 'model-records' name class="item"}}
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="thirteen wide column">
+      {{outlet}}
+    </div>
+  </div>
+</div>

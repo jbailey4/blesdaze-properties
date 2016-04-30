@@ -1,0 +1,44 @@
+.container.admin {
+  padding-top: 2em;
+}
+
+.admin-actions {
+  margin: 1em 0;
+}
+
+// dropzone file uploader styles
+.dropzone {
+  margin: 1em 0;
+  min-height: 200px;
+  border: 2px dotted rgba(0,0,0,0.3);
+  border-radius: 0.5em;
+
+  .dz-message {
+    font-size: 1.5em;
+    font-weight: lighter;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.dropzone.dz-clickable:hover  {
+  border: 2px dotted rgba(0,0,0,0.6);
+}
+
+.dz-image {
+  border: 1px solid #222;
+}
+
+.dz-image img {
+  width: 100%;
+}
+
+.dz-image-preview.dz-success .dz-image {
+  opacity: 0.25;
+}
+
+.dz-success-mark svg path {
+  fill: green;
+}
+.dz-error-mark svg path {
+  fill: tomato;
+}

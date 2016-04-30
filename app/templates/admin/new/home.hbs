@@ -1,0 +1,16 @@
+<div class='new'>
+  <h2 class="ui header">
+    <i class="home icon"></i>
+    <div class="content">
+      Add a new home
+    </div>
+  </h2>
+
+  {{#admin/home-form model=this home=this.model as |saveHome|}}
+    <div class="admin-actions">
+      {{async-button action=(action saveHome) default="Save" pending="Saving..." fulfilled="Saved" rejected="Error" class="ui button save"}}
+      <button {{action "cancel"}} class="ui button cancel">Cancel</button>
+    </div>
+  {{/admin/home-form}}
+
+</div>

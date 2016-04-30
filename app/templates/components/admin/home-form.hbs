@@ -1,0 +1,119 @@
+<div class="ui top attached tabular menu">
+  <div class="{{if (eq activeTab 'general') 'active'}} item" {{action "switchTab" "general"}}>General</div>
+  <div class="item {{if (eq activeTab 'photos') 'active'}}" {{action "switchTab" "photos"}}>Photos</div>
+</div>
+
+<div class="ui bottom attached {{if (eq activeTab 'general') 'active'}} tab segment">
+  <form class="ui form">
+    {{!--  Home Address --}}
+    <div class="fields">
+      <div class="sixteen wide field">
+        <label for="home-street">Street</label>
+        {{admin-input record=model columnValue="street" id="home-street"}}
+      </div>
+
+      <div class="four wide field">
+        <label for="home-city">City</label>
+        {{admin-input record=model columnValue="city" id="home-city"}}
+      </div>
+
+      <div class="four wide field">
+        <label for="home-state">State</label>
+        {{admin-input record=model columnValue="state" id="home-state"}}
+      </div>
+
+      <div class="four wide field">
+        <label for="home-zip">Zip</label>
+        {{admin-input record=model columnValue="zip" id="home-zip"}}
+      </div>
+    </div>
+
+    {{!-- Home Specs --}}
+    <div class="fields">
+      <div class="four wide field">
+        <label>Listing Type</label>
+        {{#ui-dropdown class="selection" onChange=(action 'updatedListingType')}}
+          <div class="default text">Select the listing type</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+          {{#each listTypes as |type|}}
+            <div class="item" data-id="{{type}}">
+              {{type}}
+            </div>
+          {{/each}}
+          </div>
+        {{/ui-dropdown}}
+      </div>
+
+      <div class="six wide field">
+        <label for="home-price">Price</label>
+        {{admin-input record=model columnValue="price" id="home-price"}}
+      </div>
+
+      <div class="six wide field">
+        <label for="home-leaseTerms">Lease Terms</label>
+        {{admin-input record=model columnValue="leaseTerms" id="home-leaseTerms"}}
+      </div>
+    </div>
+
+    <div class="fields">
+      <div class="four wide field">
+        <label for="home-beds">Beds</label>
+        {{admin-input record=model columnValue="beds" id="home-beds"}}
+      </div>
+
+      <div class="four wide field">
+        <label for="home-baths">Baths</label>
+        <input type="number" onchange={{action (mut model.baths) value="target.value"}}>
+      </div>
+
+      <div class="eight wide field">
+        <label for="home-flooring">Flooring</label>
+        {{admin-input record=model columnValue="flooring" id="home-flooring"}}
+      </div>
+    </div>
+
+    {{!--  Home Misc. --}}
+    <div class="fields">
+      <div class="four wide field">
+        <label for="home-availabilityDate">Availability Date</label>
+        {{admin-input record=model columnValue="availabilityDate" id="home-availabilityDate"}}
+      </div>
+
+      <div class="twelve wide field">
+        <label for="home-features">Features</label>
+        <textarea id="home-features" onchange={{action (mut model.features) value="target.value"}}></textarea>
+      </div>
+    </div>
+
+    <div class="fields">
+      <div class="six wide field">
+        <label for="home-schools">School</label>
+        <textarea name="home-schools" id="home-schools" onchange={{action (mut model.schools) value="target.value"}}></textarea>
+      </div>
+
+      <div class="six wide field">
+        <label for="home-areasOfInterest">Areas of Interest</label>
+        <textarea name="home-areasOfInterest" id="home-areasOfInterest" onchange={{action (mut model.areasOfInterest) value="target.value"}}></textarea>
+      </div>
+
+      <div class="four wide field">
+        <label for="home-directions">Directions</label>
+        <textarea name="home-directions" id="home-directions" onchange={{action (mut model.directions) value="target.value"}}></textarea>
+      </div>
+    </div>
+
+    <div class="fields">
+      <div class="four wide field">
+        <label for="home-petPolicy">Pet Policy</label>
+        {{admin-input record=model columnValue="petPolicy" id="home-petPolicy"}}
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="ui bottom attached {{if (eq activeTab 'photos') 'active'}} tab segment">
+  {{admin/home-photos}}
+</div>
+
+{{yield saveHome}}

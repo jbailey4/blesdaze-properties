@@ -6,14 +6,16 @@ const {
 } = DS;
 
 export default Model.extend({
-  listingType: attr('string'),
-  price: attr('string'),
   street: attr('string'),
   city: attr('string'),
   state: attr('string'),
   zip: attr('string'),
+
+  listingType: attr('string'),
+  price: attr('string'),
   beds: attr('string'),
   baths: attr('string'),
+  
   features: attr('string'),
   flooring: attr('string'),
   petPolicy: attr('string'),

@@ -1,38 +1,46 @@
-<div class="ui container">
-  <div class="{{recordType}} index">
-    {{input value=filter placeholder="Filter"}}
-    {{#unless hideCreate}}
-      {{#if relationshipGiven}}
-        {{link-to 'Create' 'model-records.new' recordType (query-params relationship-name=relationshipName relationship-id=relationshipId)}}
-      {{else}}
-        {{link-to 'Create' 'model-records.new' recordType}}
-      {{/if}}
-    {{/unless}}
+<div class="{{recordType}} index">
+  <div class="ui menu">
+    <div class="item">
+      <div class="ui icon input">
+        {{input value=filter placeholder="Filter"}}
+        <i class="filter icon"></i>
+      </div>
+    </div>
 
-    <table class="ui celled table">
-      <thead>
+    <div class="right item">
+      {{#unless hideCreate}}
+        {{#if relationshipGiven}}
+          {{link-to 'Create' 'model-records.new' recordType (query-params relationship-name=relationshipName relationship-id=relationshipId) class="ui button"}}
+        {{else}}
+          {{link-to (concat 'Create new ' recordType) 'model-records.new' recordType class="ui button"}}
+        {{/if}}
+      {{/unless}}
+    </div>
+  </div>
+
+  <table class="ui celled small fixed single line table">
+    <thead>
+      <tr>
+        {{#each filteredColumns as |column|}}
+          <th>{{column}}</th>
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each filteredRecords as |record|}}
         <tr>
           {{#each filteredColumns as |column|}}
-            <th>{{column}}</th>
+          <td>
+            {{#link-to 'model-records.edit' recordType record}}
+              {{property-print record=record column=column}}
+            {{/link-to}}
+          </td>
           {{/each}}
         </tr>
-      </thead>
-      <tbody>
-        {{#each filteredRecords as |record|}}
-          <tr>
-            {{#each filteredColumns as |column|}}
-            <td>
-              {{#link-to 'model-records.edit' recordType record}}
-                {{property-print record=record column=column}}
-              {{/link-to}}
-            </td>
-            {{/each}}
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-    {{#unless records}}
-      No records!
-    {{/unless}}
-  </div>
+      {{/each}}
+    </tbody>
+  </table>
+  {{#unless records}}
+    No records!
+  {{/unless}}
 </div>
