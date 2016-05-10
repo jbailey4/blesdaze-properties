@@ -1,8 +1,11 @@
 import DS from 'ember-data';
+import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 
 const { RESTAdapter } = DS;
 
-export default RESTAdapter.extend({
+export default RESTAdapter.extend(DataAdapterMixin, {
+  authorizer: 'authorizer:token',
+
   host: 'http://localhost:1337',
   namespace: 'api'
 });

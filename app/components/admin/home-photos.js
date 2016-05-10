@@ -1,8 +1,16 @@
 import Ember from 'ember';
 
-const { Component } = Ember;
+const {
+  Component,
+  computed,
+  inject
+} = Ember;
+
+const { service } = inject;
 
 export default Component.extend({
+  session: service(),
+
   // file upload params as per dropzonejs
   url: 'http://localhost:1337/api/home/photo',
   paramName: 'homePhoto',
@@ -11,8 +19,24 @@ export default Component.extend({
   addRemoveLinks: true,
   defaultMessage: 'Click or drag and drop here to upload images of this home',
 
+  headers: computed({
+    get() {
+      let session = this.get('session');
+
+      if (session.get('isAuthenticated')) {
+        return {
+          'Authorization': `Bearer ${session.get('data.authenticated.token')}`
+        }
+      }
+    }
+  }),
+
   // TEST ONLY REMOVE!!!
-  homeId: '57009efd057868959dc59025',
+  homeId: computed('home', {
+    get() {
+      return home.get('id');
+    }
+  }),
 
   _getDropzoneInstance() {
     // TODO  manually grabbing the dropzone instance, bc ember-cli-dropzonejs currently does not pass the dropzone instance created by the 'drop-zone' component, this should be supported upstream - PR?
@@ -37,7 +61,13 @@ export default Component.extend({
 
     sending(event, xhr, formData) {
       console.log('adding home id to photo POST request');
-      formData.append('homeId', this.get('homeId'));
+      if (this.get('home')) {
+        formData.append('homeId', this.get('homeId'));
+      } else {
+        // TODO handle edge cases where the photo uploader is active before saving a home
+        return;
+      }
+
     }
   }
 });

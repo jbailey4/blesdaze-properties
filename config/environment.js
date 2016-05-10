@@ -16,6 +16,17 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    'ember-simple-auth': {
+      authorizer: 'authorizer:token',
+      routeAfterAuthentication: 'admin',
+      routeIfAlreadyAuthenticated: 'admin'
+    },
+
+    'ember-simple-auth-token': {
+      serverTokenEndpoint: 'http://localhost:1337/api/auth',
+      identificationField: 'email'
     }
   };
 

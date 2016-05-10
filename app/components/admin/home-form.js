@@ -12,19 +12,27 @@ export default Ember.Component.extend({
     'For Sale'
   ],
 
+  /**
+    Stores the most recent saved home to pass to additional steps in the home creation process
+
+    @property savedHome
+    @public
+  */
+  savedHome: null,
+
   _canAdvance() {
     return !(this.get('home.isNew'));
   },
 
   saveHome(callback) {
-    console.log('saving home...', this);
     let homePromise = this.get('model').save();
 
     callback(homePromise);
 
-    homePromise.then(() => {
-      console.log('saved home...', arguments);
+    homePromise.then((home) => {
+      console.log('saved home...', home);
       this.set('_canAdvance', true);
+      this.set('saveHome', home);
     }).catch(() => {
       console.log('saved home failed', arguments);
     });
