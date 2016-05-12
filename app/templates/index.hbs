@@ -87,44 +87,59 @@
       <h3 class="ui centered header">
         Blesdaze Properties has been in business for nearly ten years and we have an outstanding track record. Our testimonials prove it.
       </h3>
-      <div class="featured-testimonials">
-        <div class="featured-testimonial">
-          <p class="featured-testimonial-content">
-            "Blesdaze Properties is managing my condo and within days showings have been scheduled..." I am glad you are already showing it, and when it is all done, I believe it will rent quickly. Thank you for your attention to all of this. You are doing a great job.
-          </p>
-          <div class="featured-testimonial-author">
-            <strong>
-              <i>
-                RoseAnne I.
-              </i>
-            </strong>
+      {{#carousel-container transition-interval=400}}
+        {{#carousel-body}}
+          <div class="featured-testimonials">
+            {{#carousel-item}}
+              <div class="featured-testimonial">
+                <p class="featured-testimonial-content">
+                  "Blesdaze Properties is managing my condo and within days showings have been scheduled..." I am glad you are already showing it, and when it is all done, I believe it will rent quickly. Thank you for your attention to all of this. You are doing a great job.
+                </p>
+                <div class="featured-testimonial-author">
+                  <strong>
+                    <i>
+                      RoseAnne I.
+                    </i>
+                  </strong>
+                </div>
+              </div>
+            {{/carousel-item}}
+
+            {{#carousel-item}}
+              <div class="featured-testimonial">
+                <p class="featured-testimonial-content">
+                  "I believe it will rent quickly. Thank you for your attention to all of this. You are doing a great job.
+                </p>
+                <div class="featured-testimonial-author">
+                  <strong>
+                    <i>
+                      RoseAnne II.
+                    </i>
+                  </strong>
+                </div>
+              </div>
+            {{/carousel-item}}
+            {{#carousel-item}}
+              <div class="featured-testimonial">
+                <p class="featured-testimonial-content">
+                  "Blesdaze Properties is managing my condo and within days showings have been scheduled..." I am glad you are already showing it.
+                </p>
+                <div class="featured-testimonial-author">
+                  <strong>
+                    <i>
+                      RoseAnne III.
+                    </i>
+                  </strong>
+                </div>
+              </div>
+            {{/carousel-item}}
           </div>
-        </div>
-        <div class="featured-testimonial">
-          <p class="featured-testimonial-content">
-            "I believe it will rent quickly. Thank you for your attention to all of this. You are doing a great job.
-          </p>
-          <div class="featured-testimonial-author">
-            <strong>
-              <i>
-                RoseAnne II.
-              </i>
-            </strong>
-          </div>
-        </div>
-        <div class="featured-testimonial">
-          <p class="featured-testimonial-content">
-            "Blesdaze Properties is managing my condo and within days showings have been scheduled..." I am glad you are already showing it.
-          </p>
-          <div class="featured-testimonial-author">
-            <strong>
-              <i>
-                RoseAnne III.
-              </i>
-            </strong>
-          </div>
-        </div>
-      </div>
+        {{/carousel-body}}
+
+        {{carousel-arrow direction="left" class="line-arrow left"}}
+        {{carousel-arrow direction="right" class="line-arrow right"}}
+      {{/carousel-container}}
+      {{!-- {{featured-testimonials}} --}}
     </div>
   </section>
 
