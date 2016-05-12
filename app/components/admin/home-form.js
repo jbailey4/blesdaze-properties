@@ -25,14 +25,15 @@ export default Ember.Component.extend({
   },
 
   saveHome(callback) {
+    console.log(this.get('model'));
     let homePromise = this.get('model').save();
 
     callback(homePromise);
 
     homePromise.then((home) => {
       console.log('saved home...', home);
-      this.set('_canAdvance', true);
-      this.set('saveHome', home);
+      this.set('savedHome', home);
+      console.log(this);
     }).catch(() => {
       console.log('saved home failed', arguments);
     });

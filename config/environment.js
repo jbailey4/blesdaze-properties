@@ -25,7 +25,7 @@ module.exports = function(environment) {
     },
 
     'ember-simple-auth-token': {
-      serverTokenEndpoint: 'http://localhost:1337/api/auth',
+      serverTokenEndpoint: 'api/auth',
       identificationField: 'email'
     }
   };

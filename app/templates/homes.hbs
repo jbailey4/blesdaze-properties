@@ -1,4 +1,13 @@
 <section class="ui grid container house-listings">
+  {{#if hasNoHomes}}
+    <div class="row">
+      <div class="column">
+        <h4>
+          Sorry we do not have any homes right now, come check back later.
+        </h4>
+      </div>
+    </div>
+  {{else}}
   <div class="row">
     <div class="eight wide column house-listings-filter">
       <span><strong>Listing Type: </strong> </span>
@@ -17,10 +26,13 @@
   </div>
 
   <div class="row">
-    <div class="ui two cards houses">
+    <div class="ui two column grid houses">
       {{#each model as |home|}}
-        {{home-card home=home}}
+        <div class="column">
+          {{home-card home=home}}
+        </div>
       {{/each}}
     </div>
   </div>
+  {{/if}}
 </section>

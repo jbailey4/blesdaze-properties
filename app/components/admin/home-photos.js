@@ -31,18 +31,15 @@ export default Component.extend({
     }
   }),
 
-  // TEST ONLY REMOVE!!!
-  homeId: computed('home', {
-    get() {
-      return home.get('id');
-    }
-  }),
-
   _getDropzoneInstance() {
     // TODO  manually grabbing the dropzone instance, bc ember-cli-dropzonejs currently does not pass the dropzone instance created by the 'drop-zone' component, this should be supported upstream - PR?
     let dropzoneInstance = Dropzone.instances[0];
 
     return dropzoneInstance ? dropzoneInstance : null;
+  },
+
+  didReceiveAttrs() {
+    console.log('recieved attrs home-photos...', arguments);
   },
 
   actions: {
@@ -60,9 +57,11 @@ export default Component.extend({
     },
 
     sending(event, xhr, formData) {
-      console.log('adding home id to photo POST request');
+      console.log(this);
+      console.log(this.get('home'));
       if (this.get('home')) {
-        formData.append('homeId', this.get('homeId'));
+        console.log('adding home id to photo POST request');
+        formData.append('homeId', this.get('home.id'));
       } else {
         // TODO handle edge cases where the photo uploader is active before saving a home
         return;

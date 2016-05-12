@@ -64,7 +64,7 @@
 
       <div class="four wide field">
         <label for="home-baths">Baths</label>
-        <input type="number" onchange={{action (mut model.baths) value="target.value"}}>
+        <input type="number" onchange={{action (mut home.baths) value="target.value"}}>
       </div>
 
       <div class="eight wide field">
@@ -82,24 +82,24 @@
 
       <div class="twelve wide field">
         <label for="home-features">Features</label>
-        <textarea id="home-features" onchange={{action (mut model.features) value="target.value"}}></textarea>
+        <textarea id="home-features" onchange={{action (mut home.features) value="target.value"}}></textarea>
       </div>
     </div>
 
     <div class="fields">
       <div class="six wide field">
         <label for="home-schools">School</label>
-        <textarea name="home-schools" id="home-schools" onchange={{action (mut model.schools) value="target.value"}}></textarea>
+        <textarea name="home-schools" id="home-schools" onchange={{action (mut home.schools) value="target.value"}}></textarea>
       </div>
 
       <div class="six wide field">
         <label for="home-areasOfInterest">Areas of Interest</label>
-        <textarea name="home-areasOfInterest" id="home-areasOfInterest" onchange={{action (mut model.areasOfInterest) value="target.value"}}></textarea>
+        <textarea name="home-areasOfInterest" id="home-areasOfInterest" onchange={{action (mut home.areasOfInterest) value="target.value"}}></textarea>
       </div>
 
       <div class="four wide field">
         <label for="home-directions">Directions</label>
-        <textarea name="home-directions" id="home-directions" onchange={{action (mut model.directions) value="target.value"}}></textarea>
+        <textarea name="home-directions" id="home-directions" onchange={{action (mut home.directions) value="target.value"}}></textarea>
       </div>
     </div>
 
@@ -113,7 +113,7 @@
 </div>
 
 <div class="ui bottom attached {{if (eq activeTab 'photos') 'active'}} tab segment">
-  {{admin/home-photos home=savedHome}}
+  {{admin/home-photos home=home}}
 </div>
 
 {{yield saveHome}}

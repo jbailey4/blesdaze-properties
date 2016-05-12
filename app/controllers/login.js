@@ -18,8 +18,6 @@ export default Controller.extend({
       const credentials = this.getProperties('identification', 'password');
       const authenticator = 'authenticator:jwt';
 
-      console.log(credentials);
-
       this.get('session').authenticate(authenticator, credentials);
     }
   }

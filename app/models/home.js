@@ -15,7 +15,7 @@ export default Model.extend({
   price: attr('string'),
   beds: attr('string'),
   baths: attr('string'),
-  
+
   features: attr('string'),
   flooring: attr('string'),
   petPolicy: attr('string'),
@@ -23,5 +23,7 @@ export default Model.extend({
   leaseTerms: attr('string'),
   availabilityDate: attr('string'),
   directions: attr('string'),
-  areasOfInterest: attr('string')
+  areasOfInterest: attr('string'),
+
+  photos: attr()
 });

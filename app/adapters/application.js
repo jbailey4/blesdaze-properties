@@ -5,7 +5,5 @@ const { RESTAdapter } = DS;
 
 export default RESTAdapter.extend(DataAdapterMixin, {
   authorizer: 'authorizer:token',
-
-  host: 'http://localhost:1337',
   namespace: 'api'
 });

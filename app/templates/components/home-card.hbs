@@ -5,8 +5,21 @@
     <div class="sub header">{{home.city}}, {{home.state}} {{home.zip}}</div>
   </div>
 </div>
-<div class="image">
-  <img src="/images/sample-feature-house.jpg" alt="feature image of home on 1933 Ebenezer Road Rock Hill, SC">
+<div class="image home-images-container">
+  {{#if hasPhotos}}
+    {{#carousel-container transition-interval=400}}
+      {{#carousel-body}}
+        {{#each home.photos as |photo|}}
+          {{#carousel-item}}
+            <img src={{photo.thumbnail.secure_url}} alt={{concat home.street home.city home.state}}>
+          {{/carousel-item}}
+        {{/each}}
+      {{/carousel-body}}
+
+      {{carousel-arrow direction="left" class="line-arrow left"}}
+      {{carousel-arrow direction="right" class="line-arrow right"}}
+    {{/carousel-container}}
+  {{/if}}
 </div>
 <div class="content">
   <div class="meta">{{home.beds}} beds | {{home.baths}} bath</div>
