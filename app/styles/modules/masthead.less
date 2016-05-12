@@ -1,5 +1,7 @@
 .ui.vertical.masthead.segment {
-  display:flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 500px;
   padding: 1em 0em;
 
@@ -7,12 +9,36 @@
   background-size: cover;
 
   & > .ui.text.container {
-    margin: auto;
+
   }
 }
 
-.masthead h1.ui.header {
+.masthead .ui.header.site-banner-header {
   margin-bottom: 0em;
   font-size: 4em;
   font-weight: normal;
+}
+
+.site-banner-sub-header {
+  margin-top: 0.25em;
+}
+
+@media only screen and (max-width: 700px) {
+  .masthead .ui.header.site-banner-header {
+    font-size: 3em;
+  }
+
+  .site-banner-sub-header {
+    font-size: 1.25em;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .masthead .ui.header.site-banner-header {
+    font-size: 2.5em;
+  }
+
+  .site-banner-sub-header {
+    font-size: 1.2em;
+  }
 }
