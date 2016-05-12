@@ -25,14 +25,18 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="ui two column grid houses">
-      {{#each model as |home|}}
-        <div class="column">
-          {{home-card home=home}}
-        </div>
-      {{/each}}
-    </div>
-  </div>
+  {{!-- <div class="row"> --}}
+
+  {{!-- </div> --}}
   {{/if}}
 </section>
+
+<div class="ui container">
+  <div class="ui two column grid houses">
+    {{#each model as |home|}}
+      <div class="column">
+        {{home-card home=home}}
+      </div>
+    {{/each}}
+  </div>
+</div>
