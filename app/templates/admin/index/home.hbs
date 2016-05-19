@@ -18,7 +18,18 @@
     </div>
   </div>
 
-  <table class="ui celled small fixed single line table">
+  <div class="ui container">
+    <div class="ui two column grid houses">
+      {{#each filteredRecords as |home|}}
+        <div class="column">
+          {{admin/home-card home=home recordType=recordType}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+
+  {{!-- <table class="ui celled small fixed single line table">
     <thead>
       <tr>
         {{#each filteredColumns as |column|}}
@@ -39,8 +50,8 @@
         </tr>
       {{/each}}
     </tbody>
-  </table>
+  </table> --}}
   {{#unless records}}
-    No records!
+    No homes are currently listed.
   {{/unless}}
 </div>

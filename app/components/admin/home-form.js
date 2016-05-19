@@ -33,15 +33,21 @@ export default Ember.Component.extend({
     homePromise.then((home) => {
       console.log('saved home...', home);
       this.set('savedHome', home);
-      console.log(this);
-    }).catch(() => {
-      console.log('saved home failed', arguments);
+      // this.store.push({
+      //   data: {
+      //     id: home.get('id'),
+      //     type: 'home',
+      //     attributes: home.toJSON()
+      //   }
+      // });
+    }).catch((err) => {
+      console.log('saved home failed', err);
     });
   },
 
   actions: {
     updatedListingType(component, id, value) {
-      this.set('model.listingType', value);
+      this.set('home.listingType', value);
     },
 
     switchTab(tab) {

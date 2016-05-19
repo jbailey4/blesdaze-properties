@@ -5,5 +5,9 @@ const { RESTAdapter } = DS;
 
 export default RESTAdapter.extend(DataAdapterMixin, {
   authorizer: 'authorizer:token',
-  namespace: 'api'
+  namespace: 'api',
+
+  shouldBackgroundReloadAll() {
+    return false;
+  }
 });

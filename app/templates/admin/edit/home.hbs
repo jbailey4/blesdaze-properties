@@ -1,0 +1,22 @@
+<div class='edit'>
+  <h2>Edit {{id}}</h2>
+
+  {{!-- <form>
+    {{#each filteredColumns as |column|}}
+    <div class="model-column {{column}}">
+        <label>
+          {{column}}
+          {{admin-input record=this columnValue=column}}
+        </label>
+      </div>
+    {{/each}}
+  </form> --}}
+
+  {{#admin/home-form model=this home=this.model as |saveHome|}}
+    <div class="admin-actions">
+      {{async-button action=(action saveHome) default="Save" pending="Saving..." fulfilled="Saved" rejected="Error" class="ui button save"}}
+      {{async-button action="destroyRecord" default="Delete" pending="Deleting..." fulfilled="Deleted" class="ui red button delete"}}
+      <button {{action "cancel"}} class="ui button cancel">Cancel</button>
+    </div>
+  {{/admin/home-form}}
+</div>

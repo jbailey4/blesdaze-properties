@@ -9,5 +9,12 @@ export default Ember.Component.extend({
     get() {
       return this.get('home.photos.length') > 0;
     }
+  }),
+
+  shouldShowImageArrows: computed('hasPhotos', {
+    get() {
+      console.log('should show arrows...');
+      return this.get('hasPhotos') && this.get('home.photos.length') > 1;
+    }
   })
 });

@@ -6,20 +6,30 @@
   </div>
 </div>
 <div class="image home-images-container">
-  {{#if hasPhotos}}
-    {{#carousel-container transition-interval=400}}
-      {{#carousel-body}}
+  {{#carousel-container transition-interval=100}}
+    {{#carousel-body}}
+      {{#if hasPhotos}}
+
         {{#each home.photos as |photo|}}
           {{#carousel-item}}
             <img src={{photo.thumbnail.secure_url}} alt={{concat home.street home.city home.state}}>
           {{/carousel-item}}
         {{/each}}
-      {{/carousel-body}}
 
+      {{else}}
+
+        <div class="home-image-placeholder">
+          <i class="massive home icon home-image-placeholder-icon"></i>
+        </div>
+
+      {{/if}}
+    {{/carousel-body}}
+
+    {{#if shouldShowImageArrows}}
       {{carousel-arrow direction="left" class="line-arrow left"}}
       {{carousel-arrow direction="right" class="line-arrow right"}}
-    {{/carousel-container}}
-  {{/if}}
+    {{/if}}
+  {{/carousel-container}}
 </div>
 <div class="content">
   <div class="meta">{{home.beds}} beds | {{home.baths}} bath</div>
@@ -36,8 +46,8 @@
     <i class="mail icon"></i>
     Contact
   </div>
-  <div class="right floated star">
+  {{!-- <div class="right floated star">
     <i class="star icon"></i>
     Favorite
-  </div>
+  </div> --}}
 </div>

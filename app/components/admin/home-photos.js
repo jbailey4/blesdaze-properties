@@ -16,6 +16,7 @@ export default Component.extend({
   paramName: 'homePhoto',
   acceptedFiles: '.jpg,.jpeg,.png',
   autoProcessQueue: false,
+  parallelUploads: 10,
   addRemoveLinks: true,
   defaultMessage: 'Click or drag and drop here to upload images of this home',
 
@@ -40,6 +41,13 @@ export default Component.extend({
 
   didReceiveAttrs() {
     console.log('recieved attrs home-photos...', arguments);
+  },
+
+  willDestroyElement() {
+    let dropzone = this._getDropzoneInstance();
+    if (dropzone) {
+      dropzone.destroy();
+    }
   },
 
   actions: {

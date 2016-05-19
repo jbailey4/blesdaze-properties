@@ -1,16 +1,20 @@
 .ui.vertical.masthead.segment {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 500px;
+  height: 563px;
   padding: 1em 0em;
 
-  background: url('@{images-path}/masthead-placeholder.jpg');
+  background: url('@{images-path}/masthead-image.jpg');
+  background-repeat: no-repeat;
+  background-position: center 20%;
   background-size: cover;
+}
 
-  & > .ui.text.container {
-
-  }
+.site-banner-content {
+  position: relative;
+  z-index: 2;
 }
 
 .masthead .ui.header.site-banner-header {
@@ -21,6 +25,15 @@
 
 .site-banner-sub-header {
   margin-top: 0.25em;
+}
+
+.site-banner-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+
+  background: rgba(0, 0, 0, 0.45);
+  // background: rgba(249,195,34,0.3);
 }
 
 @media only screen and (max-width: 700px) {
@@ -40,5 +53,17 @@
 
   .site-banner-sub-header {
     font-size: 1.2em;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .ui.vertical.masthead.segment {
+    height: 385px;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .ui.vertical.masthead.segment {
+    height: 275px;
   }
 }

@@ -1,0 +1,20 @@
+<div class="content">
+  <div class="right floated meta">
+    <span>{{home.listingType}} | ${{home.price}}</span>
+  </div>
+  <div class="ui header">
+    {{home.street}}
+    <div class="sub header">{{home.city}}, {{home.state}} {{home.zip}}</div>
+  </div>
+
+  <div class="description">
+    {{home.features}}
+  </div>
+</div>
+
+<div class="extra content">
+  {{#link-to 'model-records.edit' recordType home class="ui button"}}
+    <i class="add icon"></i>
+    Edit home
+  {{/link-to}}
+</div>
