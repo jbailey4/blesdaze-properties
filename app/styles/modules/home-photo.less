@@ -1,0 +1,33 @@
+.home-photos {
+  padding: 2em 0;
+}
+
+.home-photo-image-container {
+  padding: 0.5em;
+  position: relative;
+}
+
+.home-photo {
+  
+  .home-photo-image-actions {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    text-align: center;
+    padding-top: 1em;
+
+    display: none;
+
+    background: rgba(0,0,0, 0.5);
+
+    transition: opacity 0.2s ease-out;
+  }
+}
+
+.home-photo:hover,
+.home-photo:focus {
+  cursor: pointer;
+
+  .home-photo-image-actions {
+    display: block;
+  }
+}

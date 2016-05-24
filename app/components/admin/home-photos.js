@@ -3,7 +3,8 @@ import Ember from 'ember';
 const {
   Component,
   computed,
-  inject
+  inject,
+  A: emberArray
 } = Ember;
 
 const { service } = inject;
@@ -65,16 +66,23 @@ export default Component.extend({
     },
 
     sending(event, xhr, formData) {
-      console.log(this);
-      console.log(this.get('home'));
       if (this.get('home')) {
-        console.log('adding home id to photo POST request');
         formData.append('homeId', this.get('home.id'));
       } else {
         // TODO handle edge cases where the photo uploader is active before saving a home
         return;
       }
 
+    },
+
+    /**
+      Removes the photo from the list of home photos
+
+      @param photo the photo to remove
+    */
+    removePhoto(photo) {
+      let photos = emberArray(this.get('home.photos'));
+      photos.removeObject(photo);
     }
   }
 });

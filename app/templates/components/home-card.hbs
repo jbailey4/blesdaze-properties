@@ -12,7 +12,7 @@
 
         {{#each home.photos as |photo|}}
           {{#carousel-item}}
-            <img src={{photo.thumbnail.secure_url}} alt={{concat home.street home.city home.state}}>
+            <img src={{photo.thumbnailSecureUrl}} alt={{concat home.street home.city home.state}}>
           {{/carousel-item}}
         {{/each}}
 

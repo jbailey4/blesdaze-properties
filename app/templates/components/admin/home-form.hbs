@@ -104,9 +104,16 @@
     </div>
 
     <div class="fields">
-      <div class="four wide field">
+      <div class="six wide field">
         <label for="home-petPolicy">Pet Policy</label>
         {{admin-input record=model columnValue="petPolicy" id="home-petPolicy"}}
+      </div>
+
+      <div class="six wide inline field featured-checkbox">
+        <div class="ui checkbox">
+          <input type="checkbox" id="feature-checkbox" tabindex="0" class="hidden">
+          <label for="feature-checkbox">Feature</label>
+        </div>
       </div>
     </div>
   </form>

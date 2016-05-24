@@ -11,6 +11,14 @@
   sending=(action 'sending')
 }}
 
+<section class="home-photos">
+  <div class="ui four column grid">
+    {{#each home.photos as |photo|}}
+      {{admin/home-photo photo=photo remove=(action 'removePhoto')}}
+    {{/each}}
+  </div>
+</section>
+
 <div class="home-photo-actions">
   <button class="ui button" {{action "uploadPhotos"}}>Upload Photos</button>
 </div>
