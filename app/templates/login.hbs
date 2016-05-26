@@ -1,7 +1,11 @@
 <div class="login-form-container">
   <div class="ui middle aligned center aligned grid">
     <div class="column login-form">
-      <form class="ui large form" {{action "authenticate" on="submit"}}>
+      <form class="ui large form {{if loginError 'error'}}" {{action "authenticate" on="submit"}}>
+        <div class="ui error message">
+          <div class="header">Login Error</div>
+          <p>{{loginError}}</p>
+        </div>
         <div class="ui stacked segment">
           <div class="field">
             <div class="ui left icon input">
