@@ -13,7 +13,7 @@ export default Component.extend({
   session: service(),
 
   // file upload params as per dropzonejs
-  url: 'http://localhost:1337/api/home/photo',
+  url: 'https://blesdazeproperties.com/api/home/photo',
   paramName: 'homePhoto',
   acceptedFiles: '.jpg,.jpeg,.png',
   autoProcessQueue: false,
