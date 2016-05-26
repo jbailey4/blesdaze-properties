@@ -18,52 +18,55 @@
       </p>
     </div>
   </section>
-
-  <section class="ui vertical segment featured-home">
-    <div class="ui stackable grid container">
-      <div class="row">
-        <h3 class="sixteen wide column ui header featured-home-header">
-          <i class="star icon featured-home-header-icon"></i>
-          Featured Home
-        </h3>
-      </div>
-      <div class="row">
-        <div class="eight wide column">
-          <img src="images/sample-feature-house.jpg" class="ui large bordered rounded image">
+  {{log featuredHome}}
+  {{#if featuredHome}}
+    <section class="ui vertical segment featured-home">
+      <div class="ui stackable grid container">
+        <div class="row">
+          <h3 class="sixteen wide column ui header featured-home-header">
+            <i class="star icon featured-home-header-icon"></i>
+            Featured Home
+          </h3>
         </div>
-        <div class="eight wide column">
-          <h2 class="ui header featured-home-address">
-            11422 Hunters Landing Drive <br>
-            Charlotte, NC 28273
-          </h2>
-          <h2 class="ui header featured-home-price">
-            $180,000
-          </h2>
-          <div class="ui meta featured-home-meta-info">
-            <div class="featured-home-meta featured-home-meta-bd">
-              3 Bd
+        <div class="row">
+          <div class="eight wide column">
+            <img src={{featuredHomePhoto.thumbnailSecureUrl}} class="ui large bordered rounded image">
+          </div>
+          <div class="eight wide column">
+            <h2 class="ui header featured-home-address">
+              {{featuredHome.street}} <br>
+              {{featuredHome.city}}, {{featuredHome.state}} {{featuredHome.zip}}
+            </h2>
+            <h2 class="ui header featured-home-price">
+              {{featuredHome.price}}
+            </h2>
+            <div class="ui meta featured-home-meta-info">
+              <div class="featured-home-meta featured-home-meta-bd">
+                {{featuredHome.beds}} Bd
+              </div>
+              <div class="featured-home-meta featured-home-meta-ba">
+                {{featuredHome.baths}} Ba
+              </div>
+              {{!-- <div class="featured-home-meta featured-home-meta-sqft">
+                1,564 Sq Ft
+              </div> --}}
             </div>
-            <div class="featured-home-meta featured-home-meta-ba">
-              2 Full Ba
-            </div>
-            <div class="featured-home-meta featured-home-meta-sqft">
-              1,564 Sq Ft
+            <div class="feature-home-desc">
+              <p>
+                {{featuredHome.features}}
+              </p>
             </div>
           </div>
-          <div class="feature-home-desc">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error in itaque officia perspiciatis! Ut libero, aspernatur. Adipisci, sunt doloribus, debitis vel error eligendi ipsam blanditiis libero, harum vitae dolorem...
-            </p>
+        </div>
+        <div class="row">
+          <div class="center aligned column">
+            {{link-to 'Checkout our homes' 'homes' class="ui huge button"}}
+            {{!-- <a class="ui huge button">Check it out</a> --}}
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="center aligned column">
-          <a class="ui huge button">Check it out</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  {{/if}}
 
 
   <section class="ui vertical segment">
@@ -74,11 +77,6 @@
           <figcaption class="featured-owner-caption">Curtis Watson <br> Founder and Owner</figcaption>
         </figure>
       </div>
-        {{!-- <div class="ten wide middle aligned column">
-          <p>
-            "Without a realtor, home sellers or buyers are at a disadvantage in the real estate market. Please contact us for assistance in negotiating your next sell or purchase."
-          </p>
-        </div> --}}
     </div>
   </section>
 

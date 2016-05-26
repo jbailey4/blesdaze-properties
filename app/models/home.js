@@ -25,5 +25,7 @@ export default Model.extend({
   directions: attr('string'),
   areasOfInterest: attr('string'),
 
+  isFeatured: attr('boolean'),
+
   photos: attr()
 });

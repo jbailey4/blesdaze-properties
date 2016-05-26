@@ -110,10 +110,13 @@
       </div>
 
       <div class="six wide inline field featured-checkbox">
-        <div class="ui checkbox">
-          <input type="checkbox" id="feature-checkbox" tabindex="0" class="hidden">
+        {{ui-checkbox checked=home.isFeatured id="feature-checkbox"}}
+        <label for="feature-checkbox"></label>
+        {{!-- <div class="ui checkbox">
+          <input type="checkbox" id="feature-checkbox" checked={{home.isFeatured}} tabindex="0" class="hidden" onchange={{action (mut home.isFeatured) value="target.value"}}>
           <label for="feature-checkbox">Feature</label>
-        </div>
+          {{home.isFeatured}}
+        </div> --}}
       </div>
     </div>
   </form>

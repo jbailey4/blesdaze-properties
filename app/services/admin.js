@@ -2,7 +2,7 @@ import EmberAdminService from 'ember-admin/services/admin';
 
 export default EmberAdminService.extend({
   namespace: '',
-  include: ['home'],
+  include: ['home']
 
   // excludedColumns: {
   //   'home': [
