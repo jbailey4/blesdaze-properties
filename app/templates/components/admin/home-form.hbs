@@ -32,7 +32,7 @@
     <div class="fields">
       <div class="four wide field">
         <label>Listing Type</label>
-        {{#ui-dropdown class="selection" onChange=(action 'updatedListingType')}}
+        {{#ui-dropdown class="selection" selected=home.listingType onChange=(action 'updatedListingType')}}
           <div class="default text">Select the listing type</div>
           <i class="dropdown icon"></i>
           <div class="menu">
@@ -59,7 +59,7 @@
     <div class="fields">
       <div class="four wide field">
         <label for="home-beds">Beds</label>
-        {{admin-input record=model columnValue="beds" id="home-beds"}}
+        <input type="number" value={{home.beds}} onchange={{action (mut home.beds) value="target.value"}}>
       </div>
 
       <div class="four wide field">
@@ -110,13 +110,7 @@
       </div>
 
       <div class="six wide inline field featured-checkbox">
-        {{ui-checkbox checked=home.isFeatured id="feature-checkbox"}}
-        <label for="feature-checkbox"></label>
-        {{!-- <div class="ui checkbox">
-          <input type="checkbox" id="feature-checkbox" checked={{home.isFeatured}} tabindex="0" class="hidden" onchange={{action (mut home.isFeatured) value="target.value"}}>
-          <label for="feature-checkbox">Feature</label>
-          {{home.isFeatured}}
-        </div> --}}
+        {{ui-checkbox checked=home.isFeatured id="feature-checkbox" label="Feature"}}
       </div>
     </div>
   </form>

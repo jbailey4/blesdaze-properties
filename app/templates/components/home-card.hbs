@@ -43,8 +43,10 @@
 </div>
 <div class="extra content">
   <div class="left floated like">
-    <i class="mail icon"></i>
-    Contact
+    {{#link-to 'messages'}}
+      <i class="mail icon"></i>
+      Contact
+    {{/link-to}}
   </div>
   {{!-- <div class="right floated star">
     <i class="star icon"></i>
