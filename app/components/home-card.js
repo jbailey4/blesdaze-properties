@@ -11,10 +11,21 @@ export default Ember.Component.extend({
     }
   }),
 
-  shouldShowImageArrows: computed('hasPhotos', {
+  // TODO - first photo could be a photo other than the first image in the image set
+  firstPhoto: computed({
     get() {
-      console.log('should show arrows...');
-      return this.get('hasPhotos') && this.get('home.photos.length') > 1;
+      return this.get('home.photos.firstObject');
     }
-  })
+  }),
+
+  actions: {
+    previewImages() {
+      if (this.get('hasPhotos')) {
+        let photoModalTitle = `${this.get('home.street')} ${this.get('home.city')}, ${this.get('home.state')} ${this.get('home.zip')}`;
+        let photos = this.get('home.photos').map(p => p.thumbnailLargeSecureUrl);
+
+        return this.attrs.previewImages(photos, photoModalTitle);
+      }
+    }
+  }
 });

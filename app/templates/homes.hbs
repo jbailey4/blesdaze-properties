@@ -35,8 +35,22 @@
   <div class="ui two column grid houses">
     {{#each model as |home|}}
       <div class="column">
-        {{home-card home=home}}
+        {{home-card home=home contact=(action "sendHomeMessage") previewImages=(action "showImages")}}
       </div>
     {{/each}}
   </div>
 </div>
+
+{{#ui-modal name="preview-images" class="large preview-images" onHidden=(action 'previewImagesClosed')}}
+  <i class="close icon"></i>
+  <div class="header">
+    Home Photos: {{previewPhotosTitle}}
+  </div>
+  <div class="image content">
+    <div class="ui huge images">
+      {{#each previewPhotos as |photo|}}
+        <img src={{photo}} alt="Photo of home">
+      {{/each}}
+    </div>
+  </div>
+{{/ui-modal}}

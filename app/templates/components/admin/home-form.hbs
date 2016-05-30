@@ -47,7 +47,7 @@
 
       <div class="six wide field">
         <label for="home-price">Price</label>
-        {{admin-input record=model columnValue="price" id="home-price"}}
+        <input type="number" id="home-price" value={{home.price}} onchange={{action (mut home.price) value="target.value"}}>
       </div>
 
       <div class="six wide field">

@@ -21,7 +21,7 @@ export default Component.extend({
       let self = this;
 
       return new RSVP.Promise((resolve, reject) => {
-        Ember.$.ajax(`https://blesdazeproperties/api/home/photo/${photo.id}`, {
+        Ember.$.ajax(`api/home/photo/${photo.id}`, {
           method: 'DELETE',
           beforeSend(xhr) {
             xhr.setRequestHeader('Authorization', `Bearer ${session.get('data.authenticated.token')}`);

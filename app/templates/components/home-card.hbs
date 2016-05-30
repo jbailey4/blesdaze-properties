@@ -5,31 +5,8 @@
     <div class="sub header">{{home.city}}, {{home.state}} {{home.zip}}</div>
   </div>
 </div>
-<div class="image home-images-container">
-  {{#carousel-container transition-interval=100}}
-    {{#carousel-body}}
-      {{#if hasPhotos}}
-
-        {{#each home.photos as |photo|}}
-          {{#carousel-item}}
-            <img src={{photo.thumbnailSecureUrl}} alt={{concat home.street home.city home.state}}>
-          {{/carousel-item}}
-        {{/each}}
-
-      {{else}}
-
-        <div class="home-image-placeholder">
-          <i class="massive home icon home-image-placeholder-icon"></i>
-        </div>
-
-      {{/if}}
-    {{/carousel-body}}
-
-    {{#if shouldShowImageArrows}}
-      {{carousel-arrow direction="left" class="line-arrow left"}}
-      {{carousel-arrow direction="right" class="line-arrow right"}}
-    {{/if}}
-  {{/carousel-container}}
+<div class="image home-image-container" {{action "previewImages"}}>
+  <img src={{firstPhoto.thumbnailSecureUrl}} alt={{concat home.street home.city home.state}}>
 </div>
 <div class="content">
   <div class="meta">{{home.beds}} beds | {{home.baths}} bath</div>
