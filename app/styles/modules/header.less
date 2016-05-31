@@ -32,8 +32,16 @@
     border-radius: none;
 
     &:hover {
-      background: transparent;
+      background-color: transparent;
       color: #777;
+    }
+
+    &.active {
+      background-color: rgba(249, 195, 35, 0.85);
+
+      &:hover {
+        background-color: rgba(249, 195, 35, 0.95);
+      }
     }
   }
 }
