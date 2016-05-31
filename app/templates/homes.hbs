@@ -33,7 +33,7 @@
 
 <div class="ui container">
   <div class="ui two column grid houses">
-    {{#each model as |home|}}
+    {{#each filteredHomes as |home|}}
       <div class="column">
         {{home-card home=home contact=(action "sendHomeMessage") previewImages=(action "showImages")}}
       </div>
@@ -43,8 +43,11 @@
 
 {{#ui-modal name="preview-images" class="large preview-images" onHidden=(action 'previewImagesClosed')}}
   <i class="close icon"></i>
-  <div class="header">
-    Home Photos: {{previewPhotosTitle}}
+  <div class="ui header">
+    Home Photo Feed
+    <div class="sub header">
+      {{previewPhotosTitle}}
+    </div>
   </div>
   <div class="image content">
     <div class="ui huge images">

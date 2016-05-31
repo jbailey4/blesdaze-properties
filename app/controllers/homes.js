@@ -5,12 +5,28 @@ const {
   computed
 } = Ember;
 
+const { filter } = computed;
+
 export default Controller.extend({
   listingTypes: ['All', 'Rent', 'For Sale'],
   listingTypeSelection: 'All',
 
   previewPhotos: null,
   previewPhotosTitle: null,
+
+  filteredHomes: computed('listingTypeSelection', function() {
+    const type = this.get('listingTypeSelection');
+
+    let homes = this.get('model');
+
+    if (type === 'All') {
+      return homes;
+    } else {
+      return homes.filter(home => {
+        return home.get('listingType') === type;
+      });
+    }
+  }),
 
   hasNoHomes: computed('model.length', {
     get() {
