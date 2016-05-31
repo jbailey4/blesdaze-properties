@@ -5,8 +5,18 @@
     <div class="sub header">{{home.city}}, {{home.state}} {{home.zip}}</div>
   </div>
 </div>
-<div class="image home-image-container" {{action "previewImages"}}>
-  <img src={{firstPhoto.thumbnailSecureUrl}} alt={{concat home.street home.city home.state}}>
+<div class="image home-image-container">
+  {{#if hasPhotos}}
+
+    <img src={{firstPhoto.thumbnailSecureUrl}} alt={{concat home.street home.city home.state}} {{action "previewImages"}}>
+
+  {{else}}
+
+    <div class="home-image-placeholder">
+      <i class="massive home icon home-image-placeholder-icon"></i>
+    </div>
+
+  {{/if}}
 </div>
 <div class="content">
   <div class="meta">{{home.beds}} beds | {{home.baths}} bath</div>
