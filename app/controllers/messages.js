@@ -14,6 +14,7 @@ export default Ember.Controller.extend({
             this.set('isCompleted', true);
           })
           .catch((err) => {
+            console.log(err);
             this.set('errorMessage', err.error);
           })
       }
