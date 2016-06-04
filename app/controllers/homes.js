@@ -8,6 +8,7 @@ const {
 const { filter } = computed;
 
 export default Controller.extend({
+  queryParams: ['listingTypeSelection'],
   listingTypes: ['All', 'Rent', 'For Sale'],
   listingTypeSelection: 'All',
 

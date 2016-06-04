@@ -15,9 +15,9 @@
         <div class="four wide column">
           <h4 class="ui inverted header">Home Listings</h4>
           <div class="ui inverted link list">
-            <a href="/homes?type=forSale" class="item">For sale</a>
-            <a href="/homes?type=forRent" class="item">For rent</a>
-            <a href="/homes" class="item">All</a>
+            {{link-to 'For Sale' 'homes' (query-params listingTypeSelection="For Sale") class="item"}}
+            {{link-to 'For Rent' 'homes'(query-params listingTypeSelection="Rent") class="item" }}
+            {{link-to 'All' 'homes'(query-params listingTypeSelection="All") class="item" }}
           </div>
         </div>
         <div class="four wide column">
