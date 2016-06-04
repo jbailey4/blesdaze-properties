@@ -21,6 +21,24 @@ export default Component.extend({
   addRemoveLinks: true,
   defaultMessage: 'Click or drag and drop here to upload images of this home',
 
+  shouldDisableButton: computed('selectedPhotoCount', {
+    set(key, value) {
+      return value;
+    },
+
+    get(key) {
+      if (!this.get('selectedPhotoCount') || this.get('selectedPhotoCount') === 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }),
+
+  errorMessage: null,
+
+  selectedPhotoCount: null,
+
   headers: computed({
     get() {
       let session = this.get('session');
@@ -54,13 +72,19 @@ export default Component.extend({
   actions: {
     // file upload actions as per dropzonejs
     addedfile(file) {
-      console.log(`added a home photo: ${file}`);
+      this.incrementProperty('selectedPhotoCount');
+    },
+
+    removedfile(file) {
+      this.decrementProperty('selectedPhotoCount');
+      if (this.get('selectedPhotoCount') === 0) this.set('selectedPhotoCount', null);
     },
 
     uploadPhotos() {
       let dropzoneInstance = this._getDropzoneInstance();
 
       if (dropzoneInstance) {
+        this.set('shouldDisableButton', true);
         dropzoneInstance.processQueue();
       }
     },
@@ -73,6 +97,15 @@ export default Component.extend({
         return;
       }
 
+    },
+
+    queuecomplete() {
+      this.set('shouldDisableButton', false);
+      this.set('selectedPhotoCount', null);
+    },
+
+    error(file, message) {
+      this.set('errorMessage', message);
     },
 
     /**

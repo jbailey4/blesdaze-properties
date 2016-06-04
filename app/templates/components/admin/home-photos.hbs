@@ -8,7 +8,10 @@
   addRemoveLinks=addRemoveLinks
   dictDefaultMessage=defaultMessage
   addedfile=(action 'addedfile')
+  removedfile=(action 'removedfile')
   sending=(action 'sending')
+  queuecomplete=(action 'queuecomplete')
+  error=(action 'error')
 }}
 
 <section class="home-photos">
@@ -20,5 +23,5 @@
 </section>
 
 <div class="home-photo-actions">
-  <button class="ui button" {{action "uploadPhotos"}}>Upload Photos</button>
+  <button class="ui button" {{action "uploadPhotos"}} disabled={{shouldDisableButton}}>Upload {{selectedPhotoCount}} Photos</button>
 </div>
