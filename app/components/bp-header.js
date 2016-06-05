@@ -8,5 +8,11 @@ const {
 const { service } = inject;
 
 export default Component.extend({
-  session: service('session')
+  session: service('session'),
+
+  actions: {
+    toggleMobileNav() {
+      Ember.$('body').toggleClass('show-menu');
+    }
+  }
 });
