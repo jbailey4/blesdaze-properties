@@ -1,3 +1,5 @@
 {{bp-header}}
 {{outlet}}
-{{bp-footer}}
+{{#if session.isAuthenticated}}
+  {{bp-footer}}
+{{/if}}

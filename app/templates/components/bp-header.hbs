@@ -10,14 +10,14 @@
       <i class="ellipsis vertical icon"></i>
     </a>
     <div id="main-menu" class="siteHeader__nav ui secondary stackable menu" role="navigation">
-      {{#link-to "index" class="item"}}Home{{/link-to}}
-      {{#link-to "about-us" class="item"}}About Us{{/link-to}}
-      {{#link-to "services" class="item"}}Services{{/link-to}}
-      {{!-- <a href="/testimonials" class="item">Testimonials</a> --}}
-      {{#link-to "homes" class="item"}}House Listings{{/link-to}}
-      {{#link-to "messages" class="item"}}Contact us{{/link-to}}
-
       {{#if session.isAuthenticated}}
+        {{#link-to "index" class="item"}}Home{{/link-to}}
+        {{#link-to "about-us" class="item"}}About Us{{/link-to}}
+        {{#link-to "services" class="item"}}Services{{/link-to}}
+        {{#link-to "homes" class="item"}}House Listings{{/link-to}}
+        {{#link-to "messages" class="item"}}Contact us{{/link-to}}
+
+
         {{#link-to "admin" class="item"}}Admin{{/link-to}}
       {{/if}}
     </div>
