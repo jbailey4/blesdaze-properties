@@ -1,6 +1,20 @@
 import Ember from 'ember';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
-const { Route } = Ember;
+const {
+  Route,
+  get,
+  inject
+ } = Ember;
 
-export default Route.extend(ApplicationRouteMixin, {});
+const { service } = inject;
+
+export default Route.extend(ApplicationRouteMixin, {
+  session: service('session'),
+
+  beforeModel() {
+    if (!get(this, 'session.isAuthenticated')) {
+      this.transitionTo('splash');
+    }
+  }
+});

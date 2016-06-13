@@ -14,6 +14,7 @@ Router.map(function() {
 
   adminRouter(this);
   this.route('login');
+  this.route('splash');
 });
 
 export default Router;
