@@ -2,7 +2,7 @@
   <div class="right floated price">{{home.listingType}} {{#if home.price}}| ${{home.price}} {{/if}}</div>
   <div class="header">
     {{home.street}}
-    <div class="sub header">{{home.city}}, {{home.state}} {{home.zip}}</div>
+    <div class="sub header">{{#if home.city}}{{home.city}},{{/if}} {{home.state}} {{home.zip}}</div>
   </div>
 </div>
 <div class="image home-image-container">
