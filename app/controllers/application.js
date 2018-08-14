@@ -1,9 +1,4 @@
-import Ember from 'ember';
-
-const {
-  Controller,
-  inject
- } = Ember;
+import Controller from '@ember/controller';
 
 const { service } = inject;
 

@@ -1,11 +1,6 @@
-import Ember from 'ember';
-
-const {
-  Component,
-  computed,
-  inject,
-  A: emberArray
-} = Ember;
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { A as emberArray } from '@ember/array';
 
 const { service } = inject;
 

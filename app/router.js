@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 import adminRouter from 'ember-admin/router';
 
-const Router = Ember.Router.extend({
+const Router = EmberRouter.extend({
   location: config.locationType
 });
 

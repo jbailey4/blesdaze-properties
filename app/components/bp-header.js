@@ -1,9 +1,5 @@
-import Ember from 'ember';
-
-const {
-  Component,
-  inject
-} = Ember;
+import $ from 'jquery';
+import Component from '@ember/component';
 
 const { service } = inject;
 
@@ -12,7 +8,7 @@ export default Component.extend({
 
   actions: {
     toggleMobileNav() {
-      Ember.$('body').toggleClass('show-menu');
+      $('body').toggleClass('show-menu');
     }
   }
 });

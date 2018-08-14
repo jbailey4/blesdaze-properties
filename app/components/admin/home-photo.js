@@ -1,10 +1,6 @@
-import Ember from 'ember';
-
-const {
-  RSVP,
-  Component,
-  inject
-} = Ember;
+import $ from 'jquery';
+import RSVP from 'rsvp';
+import Component from '@ember/component';
 
 const { service } = inject;
 
@@ -21,7 +17,7 @@ export default Component.extend({
       let self = this;
 
       return new RSVP.Promise((resolve, reject) => {
-        Ember.$.ajax(`api/home/photo/${photo.id}`, {
+        $.ajax(`api/home/photo/${photo.id}`, {
           method: 'DELETE',
           beforeSend(xhr) {
             xhr.setRequestHeader('Authorization', `Bearer ${session.get('data.authenticated.token')}`);

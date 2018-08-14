@@ -1,9 +1,6 @@
-import Ember from 'ember';
-
-const {
-  Controller,
-  computed
-} = Ember;
+import { later } from '@ember/runloop';
+import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
 const { filter } = computed;
 
@@ -57,7 +54,7 @@ export default Controller.extend({
         previewPhotosTitle: title
       });
 
-      Ember.run.later(() => {
+      later(() => {
         $('.ui.preview-images.modal').modal('show');
       }, 100);
     },
