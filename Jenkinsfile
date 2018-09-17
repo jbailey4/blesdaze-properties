@@ -1,10 +1,15 @@
 pipeline {
   agent any
 
+  environment {
+    CI="true"
+  }
+
   stages {
     stage ('Test') {
       steps {
         echo "Test..."
+        sh "node --version"
       }
     }
 
@@ -17,12 +22,6 @@ pipeline {
     stage ('Build') {
       steps {
         echo "Build..."
-      }
-    }
-
-    stage ('Deploy') {
-      steps {
-        echo "Deploy..."
       }
     }
   }
