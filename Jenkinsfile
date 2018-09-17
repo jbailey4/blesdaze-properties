@@ -9,13 +9,19 @@ pipeline {
     stage ('Install') {
       steps {
         echo 'Install...'
-        sh 'npm install && bower install'
+        nodejs(nodeJSInstallationName: 'node9') {
+          sh 'npm install'
+          sh 'bower install'
+        }
       }
     }
 
     stage ('Test') {
       steps {
         echo 'Test...'
+        nodejs(nodeJSInstallationName: 'node9') {
+          sh 'npm test'
+        }
       }
     }
 
