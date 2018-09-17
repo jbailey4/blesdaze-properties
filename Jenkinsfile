@@ -2,26 +2,26 @@ pipeline {
   agent any
 
   environment {
-    CI="true"
+    CI='true'
   }
 
   stages {
-    stage ('Test') {
+    stage ('Install') {
       steps {
-        echo "Test..."
-        sh "node --version"
+        echo 'Install...'
+        sh 'npm install && bower install'
       }
     }
 
-    stage ('Install') {
+    stage ('Test') {
       steps {
-        echo "Install..."
+        echo 'Test...'
       }
     }
 
     stage ('Build') {
       steps {
-        echo "Build..."
+        echo 'Build...'
       }
     }
   }
