@@ -11,7 +11,6 @@ pipeline {
         echo 'Install...'
         nodejs(nodeJSInstallationName: 'node9') {
           sh 'npm install'
-          sh 'bower install'
         }
       }
     }
