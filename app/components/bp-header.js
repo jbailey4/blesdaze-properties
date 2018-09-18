@@ -1,10 +1,9 @@
 import $ from 'jquery';
 import Component from '@ember/component';
-
-const { service } = inject;
+import { inject } from "@ember/service";
 
 export default Component.extend({
-  session: service('session'),
+  session: inject('session'),
 
   actions: {
     toggleMobileNav() {

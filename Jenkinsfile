@@ -9,9 +9,9 @@ pipeline {
     stage ('Install') {
       steps {
         echo 'Install...'
-        nodejs(nodeJSInstallationName: 'node9') {
-          sh 'npm --version && node --version'
-          sh 'npm install'
+        nodejs(nodeJSInstallationName: 'node10') {
+          sh 'node --version && yarn --version'
+          sh 'yarn install --ignore-scripts'
         }
       }
     }
@@ -19,8 +19,8 @@ pipeline {
     stage ('Test') {
       steps {
         echo 'Test...'
-        nodejs(nodeJSInstallationName: 'node9') {
-          sh 'npm test'
+        nodejs(nodeJSInstallationName: 'node10') {
+          sh 'yarn run test'
         }
       }
     }

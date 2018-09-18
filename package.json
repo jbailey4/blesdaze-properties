@@ -3,13 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "description": "Small description for blesdaze-properties goes here",
-  "license": "MIT",
-  "author": "",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/jbailey4/blesdaze-properties",
   "scripts": {
     "build": "ember build",
     "lint:js": "eslint .",
@@ -20,7 +17,7 @@
     "broccoli-asset-rev": "^2.7.0",
     "ember-admin": "^0.2.1",
     "ember-ajax": "^3.0.0",
-    "ember-carousel": "^0.1.0",
+    "ember-carousel": "https://github.com/selvagsz/ember-carousel#05221cd68e31c9d0c3ec0330b80224f02bc4a4d6",
     "ember-cli": "~3.3.0",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.6.0",
@@ -43,11 +40,13 @@
     "ember-simple-auth": "1.1.0-beta.5",
     "ember-simple-auth-token": "1.1.1",
     "ember-source": "~3.3.0",
-    "ember-welcome-page": "^3.0.0",
     "eslint-plugin-ember": "^5.0.0",
     "loader.js": "^4.2.3",
     "qunit-dom": "^0.6.2",
     "semantic-ui-ember": "3.0.3"
+  },
+  "resolutions": {
+    "ember-cli-htmlbars": "^2.0.1"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"

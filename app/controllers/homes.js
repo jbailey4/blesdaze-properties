@@ -1,16 +1,22 @@
 import { later } from '@ember/runloop';
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
-
-const { filter } = computed;
+import { set } from "@ember/object";
+import $ from "jquery";
 
 export default Controller.extend({
   queryParams: ['listingTypeSelection'],
-  listingTypes: ['All', 'Rent', 'For Sale'],
+  listingTypes: null,
   listingTypeSelection: 'All',
 
   previewPhotos: null,
   previewPhotosTitle: null,
+
+  init() {
+    this._super(...arguments);
+
+    set(this, 'listingTypes', [ 'All', 'Rent', 'For Sale' ]);
+  },
 
   filteredHomes: computed('listingTypeSelection', function() {
     const type = this.get('listingTypeSelection');
@@ -39,10 +45,6 @@ export default Controller.extend({
   actions: {
     listTypeSelectionChange(component, id, value) {
       this.set('listingTypeSelection', value);
-    },
-
-    sendHomeMessage() {
-      console.log(this);
     },
 
     showImages(images, title) {

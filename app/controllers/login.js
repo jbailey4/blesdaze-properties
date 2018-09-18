@@ -1,9 +1,8 @@
 import Controller from '@ember/controller';
-
-const { service } = inject;
+import { inject } from "@ember/service";
 
 export default Controller.extend({
-  session: service(),
+  session: inject(),
 
   identification: null,
   password: null,
@@ -16,7 +15,6 @@ export default Controller.extend({
       this.get('session').authenticate(authenticator, credentials).then(() => {
         this.set('loginError', null);
       }).catch((err) => {
-        console.log(err);
         this.set('loginError', err.error);
       });
     }

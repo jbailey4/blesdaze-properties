@@ -23,7 +23,7 @@ export default Component.extend({
         let photoModalTitle = `${this.get('home.street')} ${this.get('home.city')}, ${this.get('home.state')} ${this.get('home.zip')}`;
         let photos = this.get('home.photos').map(p => p.thumbnailLargeSecureUrl);
 
-        return this.attrs.previewImages(photos, photoModalTitle);
+        return this.previewImages(photos, photoModalTitle);
       }
     }
   }

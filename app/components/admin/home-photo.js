@@ -1,11 +1,10 @@
 import $ from 'jquery';
 import RSVP from 'rsvp';
 import Component from '@ember/component';
-
-const { service } = inject;
+import { inject } from "@ember/service";
 
 export default Component.extend({
-  session: service(),
+  session: inject(),
 
   classNames: ['home-photo', 'column'],
 

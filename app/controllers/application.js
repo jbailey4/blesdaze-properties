@@ -1,7 +1,6 @@
 import Controller from '@ember/controller';
-
-const { service } = inject;
+import { inject } from "@ember/service";
 
 export default Controller.extend({
-  session: service('session')
+  session: inject('session')
 });

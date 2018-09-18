@@ -1,11 +1,10 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { A as emberArray } from '@ember/array';
-
-const { service } = inject;
+import { inject } from "@ember/service";
 
 export default Component.extend({
-  session: service(),
+  session: inject(),
 
   // file upload params as per dropzonejs
   url: 'api/home/photo',
@@ -21,7 +20,7 @@ export default Component.extend({
       return value;
     },
 
-    get(key) {
+    get(/*key*/) {
       if (!this.get('selectedPhotoCount') || this.get('selectedPhotoCount') === 0) {
         return true;
       } else {
@@ -48,13 +47,9 @@ export default Component.extend({
 
   _getDropzoneInstance() {
     // TODO  manually grabbing the dropzone instance, bc ember-cli-dropzonejs currently does not pass the dropzone instance created by the 'drop-zone' component, this should be supported upstream - PR?
-    let dropzoneInstance = Dropzone.instances[0];
+    let dropzoneInstance = Dropzone.instances[0]; // eslint-disable-line no-undef
 
     return dropzoneInstance ? dropzoneInstance : null;
-  },
-
-  didReceiveAttrs() {
-    console.log('recieved attrs home-photos...', arguments);
   },
 
   willDestroyElement() {
@@ -66,11 +61,11 @@ export default Component.extend({
 
   actions: {
     // file upload actions as per dropzonejs
-    addedfile(file) {
+    addedfile() {
       this.incrementProperty('selectedPhotoCount');
     },
 
-    removedfile(file) {
+    removedfile() {
       this.decrementProperty('selectedPhotoCount');
       if (this.get('selectedPhotoCount') === 0) this.set('selectedPhotoCount', null);
     },
