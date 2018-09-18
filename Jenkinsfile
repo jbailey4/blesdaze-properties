@@ -10,6 +10,7 @@ pipeline {
       steps {
         echo 'Install...'
         nodejs(nodeJSInstallationName: 'node9') {
+          sh 'npm --version && node --version'
           sh 'npm install'
         }
       }
