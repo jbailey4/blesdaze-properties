@@ -84,10 +84,10 @@
       <h3 class="ui centered header">
         Blesdaze Properties has been in business for nearly ten years and we have an outstanding track record. Our testimonials prove it.
       </h3>
-      {{#carousel-container transition-interval=400}}
+      {{#carousel-container transition-interval=400 as |ui controls|}}
         {{#carousel-body}}
           <div class="featured-testimonials">
-            {{#carousel-item}}
+            {{#ui.item}}
               <div class="featured-testimonial">
                 <p class="featured-testimonial-content">
                   "Blesdaze Properties is managing my condo and within days showings have been scheduled..." I am glad you are already showing it, and when it is all done, I believe it will rent quickly. Thank you for your attention to all of this. You are doing a great job."
@@ -100,9 +100,9 @@
                   </strong>
                 </div>
               </div>
-            {{/carousel-item}}
+            {{/ui.item}}
 
-            {{#carousel-item}}
+            {{#ui.item}}
               <div class="featured-testimonial">
                 <p class="featured-testimonial-content">
                   "I cannot thank you enough for all of your help with the property. Blesdaze Property Management Services coordinated repairs and cleanup for the sale of our house. You have been such a blessing to us and we sincerely appreciate you."
@@ -115,8 +115,8 @@
                   </strong>
                 </div>
               </div>
-            {{/carousel-item}}
-            {{#carousel-item}}
+            {{/ui.item}}
+            {{#ui.item}}
               <div class="featured-testimonial">
                 <p class="featured-testimonial-content">
                   "Blesdaze Properties has been the property manager at my Charlotte home while I've lived in Arizona for more than 6 years. Even though I am clear across the country I have never had a worry about my Charlotte home, every problem that has popped up has been expertly handled by Blesdaze Properties. I would recommend Blesdaze Properties to any homeowner who needs a good, trustworthy property manager."
@@ -129,8 +129,8 @@
                   </strong>
                 </div>
               </div>
-            {{/carousel-item}}
-            {{#carousel-item}}
+            {{/ui.item}}
+            {{#ui.item}}
               <div class="featured-testimonial">
                 <p class="featured-testimonial-content">
                   “Blesdaze Properties provides a personal touch. They care enough about you to let you know who your neighbors are and that made me feel welcomed and appreciated as a tenant. They are always doing things in the community to make it beautiful. It makes me feel good that they care enough to go that extra mile to provide excellent customer services.”
@@ -143,8 +143,8 @@
                   </strong>
                 </div>
               </div>
-            {{/carousel-item}}
-            {{#carousel-item}}
+            {{/ui.item}}
+            {{#ui.item}}
               <div class="featured-testimonial">
                 <p class="featured-testimonial-content">
                   “Eight years ago, Blesdaze Properties purchased my house along with several along my street. Since Blesdaze Property Management Services have been here our entire neighborhood has improved. Each day I am confident that someone from their staff will be available to handle any issues that may arise. The company has even worked with City leadership to improve police, sanitation and traffic concerns. I would recommend this company to anyone.”
@@ -157,12 +157,12 @@
                   </strong>
                 </div>
               </div>
-            {{/carousel-item}}
+            {{/ui.item}}
           </div>
         {{/carousel-body}}
 
-        {{carousel-arrow direction="left" class="line-arrow left"}}
-        {{carousel-arrow direction="right" class="line-arrow right"}}
+        {{carousel-arrow click=(action controls.previous) direction="left" class="line-arrow left"}}
+        {{carousel-arrow click=(action controls.next) direction="right" class="line-arrow right"}}
       {{/carousel-container}}
       {{!-- {{featured-testimonials}} --}}
     </div>

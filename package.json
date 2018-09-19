@@ -17,7 +17,7 @@
     "broccoli-asset-rev": "^2.7.0",
     "ember-admin": "^0.2.1",
     "ember-ajax": "^3.0.0",
-    "ember-carousel": "https://github.com/selvagsz/ember-carousel#05221cd68e31c9d0c3ec0330b80224f02bc4a4d6",
+    "ember-carousel": "^0.1.0",
     "ember-cli": "~3.3.0",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.6.0",
