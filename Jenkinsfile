@@ -8,7 +8,6 @@ pipeline {
   stages {
     stage ('Install') {
       steps {
-        echo 'Install...'
         nodejs(nodeJSInstallationName: 'node10') {
           sh 'node --version && yarn --version'
           sh 'yarn install --ignore-scripts'
@@ -18,7 +17,6 @@ pipeline {
 
     stage ('Test') {
       steps {
-        echo 'Test...'
         nodejs(nodeJSInstallationName: 'node10') {
           sh 'yarn run test'
         }
@@ -27,7 +25,8 @@ pipeline {
 
     stage ('Build') {
       steps {
-        echo 'Build...'
+        sh 'ember build --prod'
+        sh 'rsync --recursive --backup --backup-dir=${PUBLISH_DIR}backups ${WORKSPACE}/dist/ ${PUBLISH_DIR}'
       }
     }
   }
