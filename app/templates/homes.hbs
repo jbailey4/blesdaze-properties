@@ -35,7 +35,7 @@
   <div class="ui stackable two column grid houses">
     {{#each filteredHomes as |home|}}
       <div class="column">
-        {{home-card home=home contact=(action "sendHomeMessage") previewImages=(action "showImages")}}
+        {{home-card home=home previewImages=(action "showImages")}}
       </div>
     {{/each}}
   </div>
