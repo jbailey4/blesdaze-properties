@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('messages', { path: '/contact-us' });
 
   adminRouter(this);
+  
   this.route('login');
   this.route('splash');
 });

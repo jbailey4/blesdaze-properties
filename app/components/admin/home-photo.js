@@ -1,5 +1,3 @@
-import $ from 'jquery';
-import RSVP from 'rsvp';
 import Component from '@ember/component';
 import { inject } from "@ember/service";
 
@@ -13,26 +11,23 @@ export default Component.extend({
       const photo = this.get('photo');
       const session = this.get('session');
 
-      let self = this;
+      const token = session.get('data.authenticated.token');
 
-      return new RSVP.Promise((resolve, reject) => {
-        $.ajax(`api/home/photo/${photo.id}`, {
+      return new Promise((resolve, reject) => {
+        fetch(`api/home/photo/${photo.id}`, {
           method: 'DELETE',
-          beforeSend(xhr) {
-            xhr.setRequestHeader('Authorization', `Bearer ${session.get('data.authenticated.token')}`);
-          },
-
-          success() {
-            self.attrs.remove(photo);
-            return resolve(arguments);
-          },
-
-          error(err) {
-            return reject(err);
+          headers: {
+            Authorization: token
           }
-        });
-      });
+        })
+        .then((response) => response.json())
+        .then((data) => {
+          this.remove(photo);
 
+          resolve(data)
+        })
+        .catch(reject)
+      });
     }
   }
 });
