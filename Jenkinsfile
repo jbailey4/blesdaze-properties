@@ -25,7 +25,9 @@ pipeline {
 
     stage ('Build') {
       steps {
-        sh 'ember build --prod'
+        nodejs(nodeJSInstallationName: 'node10') {
+          sh 'ember build --prod'
+        }
         sh 'rsync --recursive --backup --backup-dir=${PUBLISH_DIR}backups ${WORKSPACE}/dist/ ${PUBLISH_DIR}'
       }
     }
