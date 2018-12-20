@@ -2,6 +2,7 @@ import Application from '@ember/application';
 import Resolver from './resolver';
 import loadInitializers from 'ember-load-initializers';
 import config from './config/environment';
+import LogRocket from 'logrocket';
 
 const App = Application.extend({
   modulePrefix: config.modulePrefix,
@@ -10,5 +11,7 @@ const App = Application.extend({
 });
 
 loadInitializers(App, config.modulePrefix);
+
+LogRocket.init('x3gsne/blesdaze-properties');
 
 export default App;
