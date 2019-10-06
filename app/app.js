@@ -12,6 +12,8 @@ const App = Application.extend({
 
 loadInitializers(App, config.modulePrefix);
 
-LogRocket.init('x3gsne/blesdaze-properties');
+if (config.environment === 'production') {
+  LogRocket.init('x3gsne/blesdaze-properties');
+}
 
 export default App;

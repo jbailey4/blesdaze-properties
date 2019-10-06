@@ -41,4 +41,8 @@ export default function() {
 
     return new Response('200', {}, responseBody);
   });
+
+  if (window.Cypress) {
+    window.mirage = this;
+  }
 }

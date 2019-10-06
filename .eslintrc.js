@@ -8,14 +8,17 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
-    'ember'
+    'ember',
+    'cypress'
   ],
   extends: [
     'eslint:recommended',
-    'plugin:ember/recommended'
+    'plugin:ember/recommended',
+    'plugin:cypress/recommended'
   ],
   env: {
-    browser: true
+    browser: true,
+    'cypress/globals': true
   },
   rules: {
   },
