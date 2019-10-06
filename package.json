@@ -9,6 +9,7 @@
   "repository": "https://github.com/jbailey4/blesdaze-properties",
   "scripts": {
     "build": "ember build",
+    "build:prod": "ember build --prod",
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test",
