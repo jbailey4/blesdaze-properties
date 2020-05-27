@@ -25,6 +25,7 @@ docker rm blesdaze-properties
 docker run -d \
 --name blesdaze-properties \
 --net nginx-proxy \
+-v ./nginx/vhost.d:/etc/nginx/vhost.d:ro
 -e VIRTUAL_HOST=blesdazeproperties.com \
 -e LETSENCRYPT_HOST=blesdazeproperties.com \
 jbailey4/blesdaze-properties
